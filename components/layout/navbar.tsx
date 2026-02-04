@@ -26,7 +26,12 @@ export function Navbar() {
     }}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 lg:px-8">
         {/* Logo Area */}
-        <Link href="/" className="flex items-center space-x-2" onClick={() => setIsOpen(false)}>
+        <Link href="/" className="flex items-center space-x-3 md:space-x-4" onClick={() => setIsOpen(false)}>
+          <img 
+            src="/event-logo.png" 
+            alt="MOH Skull Base Workshop Logo" 
+            className="h-9 md:h-12 w-auto object-contain"
+          />
           <div className="flex flex-col">
             <span className="text-xl font-extrabold tracking-tight" style={{ color: 'var(--text)' }}>
               MOH <span className="text-brand-400">SKULL BASE</span>

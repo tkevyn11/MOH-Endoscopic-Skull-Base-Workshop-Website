@@ -265,12 +265,12 @@ export default function Home() {
             {/* Organisers */}
             <div className="text-center lg:text-left">
               <h3 className="text-sm font-bold uppercase tracking-widest mb-8" style={{ color: 'var(--muted)' }}>Jointly Organised By</h3>
-              <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 sm:gap-6 transition-all duration-500">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 justify-items-center lg:justify-items-start gap-4 sm:gap-6 transition-all duration-500">
                 <LogoPlaceholder src="/logos/moh.png" alt="MOH Malaysia logo" className="w-20" imgClassName="scale-110" />
                 <LogoPlaceholder src="/logos/neurosurgery-hkl.jpeg" alt="Neurosurgery HKL logo" className="w-20" />
                 <LogoPlaceholder src="/logos/postgrad-hkl.jpg" alt="Postgrad Medical Society HKL logo" className="w-20" />
                 <LogoPlaceholder src="/logos/ukm.png" alt="UKM logo" className="w-20" imgClassName="scale-125" />
-                <LogoPlaceholder src="/logos/hctm.png" alt="HCTM logo" className="w-32" />
+                <LogoPlaceholder src="/logos/hctm.png" alt="HCTM logo" className="w-32 col-span-2 sm:col-span-1" />
               </div>
             </div>
 
