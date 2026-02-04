@@ -1,5 +1,9 @@
 # MOH Endoscopic Skull Base Workshop Website
 
+![Website preview](public/preview.png)
+
+**Live demo:** https://moh-endoscopic-skull-base-workshop.vercel.app
+
 Public-facing event website for the **MOH Comprehensive Endoscopic Skull Base Cadaveric Workshop 2026**.
 
 ## Purpose
