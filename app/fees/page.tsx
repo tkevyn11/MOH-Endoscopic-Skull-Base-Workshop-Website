@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { FEES } from "@/data/fees";
 import { cn } from "@/lib/utils";
-import { Check, Info, Users } from "lucide-react";
+import { Check, Info, Users, AlertCircle } from "lucide-react";
+import { CONFIG } from "@/constants/config";
 
 export default function FeesPage() {
   const [isEarlyBird, setIsEarlyBird] = useState(true);
@@ -53,13 +54,20 @@ export default function FeesPage() {
               key={tier.category}
               onClick={() => setActiveTab(tier.category)}
               className={cn(
-                "px-6 py-3 border-b-2 text-base font-medium transition-colors",
+                "px-6 py-3 border-b-2 text-base font-medium transition-colors relative",
                 activeTab === tier.category
                   ? "border-white/80 text-white"
                   : "border-transparent text-white/60 hover:text-white"
               )}
             >
-              {tier.category}
+              <span className="flex items-center gap-2">
+                {tier.category}
+                {CONFIG.DISSECTOR_FULL && tier.category === "Dissector" && (
+                  <span className="inline-flex items-center rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-bold text-white uppercase tracking-wide">
+                    Full
+                  </span>
+                )}
+              </span>
             </button>
           ))}
         </div>
@@ -68,10 +76,32 @@ export default function FeesPage() {
       {/* Pricing Card Display */}
       <div className="max-w-4xl mx-auto">
         {currentTier && (
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
-             <div className="bg-brand-900 p-6 text-center text-white">
-                <h2 className="text-2xl font-bold">{currentTier.category}</h2>
-                <p className="text-brand-200 opacity-90">{currentTier.description}</p>
+          <div className={cn(
+            "bg-white rounded-3xl shadow-xl overflow-hidden border",
+            CONFIG.DISSECTOR_FULL && currentTier.category === "Dissector" 
+              ? "border-slate-300 opacity-90" 
+              : "border-slate-200"
+          )}>
+             <div className={cn(
+               "p-6 text-center text-white relative",
+               CONFIG.DISSECTOR_FULL && currentTier.category === "Dissector"
+                 ? "bg-slate-500"
+                 : "bg-brand-900"
+             )}>
+                <div className="flex items-center justify-center gap-3">
+                  <h2 className="text-2xl font-bold">{currentTier.category}</h2>
+                  {CONFIG.DISSECTOR_FULL && currentTier.category === "Dissector" && (
+                    <span className="inline-flex items-center rounded-full bg-red-500 px-3 py-1 text-xs font-bold text-white shadow-sm uppercase tracking-wide">
+                      Sold Out
+                    </span>
+                  )}
+                </div>
+                <p className={cn(
+                  "opacity-90",
+                  CONFIG.DISSECTOR_FULL && currentTier.category === "Dissector"
+                    ? "text-slate-200"
+                    : "text-brand-200"
+                )}>{currentTier.description}</p>
              </div>
              
              <div className="p-8 lg:p-12">
@@ -137,6 +167,27 @@ export default function FeesPage() {
                         <span className="text-slate-600">Meals and refreshments included</span>
                       </li>
                    </ul>
+                   
+                   {/* Registration CTA */}
+                   <div className="mt-8">
+                     {CONFIG.DISSECTOR_FULL && currentTier.category === "Dissector" ? (
+                       <button
+                         disabled
+                         className="w-full py-4 px-6 rounded-xl bg-slate-300 text-slate-500 font-bold text-lg cursor-not-allowed"
+                       >
+                         Sold Out
+                       </button>
+                     ) : (
+                       <a
+                         href="https://docs.google.com/forms/d/e/1FAIpQLSfI9-izLjBON1F0kOE3JKeaGWAiRgQCryxp-7wwNEZoQLGQ3A/viewform"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         className="block w-full py-4 px-6 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-lg text-center transition-colors shadow-md hover:shadow-lg"
+                       >
+                         Register Now
+                       </a>
+                     )}
+                   </div>
                 </div>
              </div>
           </div>
@@ -147,6 +198,16 @@ export default function FeesPage() {
       <div className="max-w-2xl mx-auto mt-20">
          <h3 className="text-2xl font-bold text-white/90 mb-6 text-center">Frequently Asked Questions</h3>
          <div className="space-y-4">
+            {CONFIG.DISSECTOR_FULL && (
+              <div className="bg-amber-50 p-6 rounded-xl shadow-sm border border-amber-200">
+                 <h4 className="font-bold text-amber-900 mb-2 flex items-center">
+                   <AlertCircle className="h-4 w-4 mr-2 text-amber-600" /> Dissector Slots Full
+                 </h4>
+                 <p className="text-amber-800">
+                   All dissector positions (hands-on cadaveric workshop) have been filled. Observer registration remains open for those who wish to attend the lectures and observe the cadaveric sessions.
+                 </p>
+              </div>
+            )}
             <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
                <h4 className="font-bold text-slate-900 mb-2 flex items-center">
                  <Info className="h-4 w-4 mr-2 text-brand-500" /> Refund Policy

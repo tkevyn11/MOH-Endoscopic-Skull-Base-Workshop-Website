@@ -1,8 +1,9 @@
 import Link from "@/lib/router";
-import { CalendarDays, MapPin, Users, GraduationCap, ChevronRight } from "lucide-react";
+import { CalendarDays, MapPin, Users, GraduationCap, ChevronRight, AlertCircle } from "lucide-react";
 import { EVENT_DETAILS } from "@/data/event";
 import { FACULTY } from "@/data/faculty";
 import { Button } from "@/components/ui/button";
+import { CONFIG } from "@/constants/config";
 
 function getFlagAsset(country: string) {
   switch (country) {
@@ -82,6 +83,24 @@ export default function Home() {
             <p className="mb-8 text-lg text-brand-100 sm:text-xl max-w-2xl drop-shadow-sm">
               Join leading experts for an intensive hands-on experience at the {EVENT_DETAILS.venue.name}, {EVENT_DETAILS.venue.university}.
             </p>
+            
+            {/* Dissector Full Announcement */}
+            {CONFIG.DISSECTOR_FULL && (
+              <div className="mb-6 max-w-2xl">
+                <div className="inline-flex items-start gap-3 rounded-2xl bg-white/10 backdrop-blur-md px-5 py-3.5 shadow-lg border border-white/20">
+                  <div className="flex-shrink-0">
+                    <span className="inline-flex items-center rounded-full bg-amber-400/90 px-2.5 py-0.5 text-xs font-semibold text-amber-900 shadow-sm">
+                      Update
+                    </span>
+                  </div>
+                  <div className="text-sm leading-relaxed">
+                    <span className="font-semibold text-white">Dissector slots are now full.</span>
+                    <span className="text-brand-100"> Observer registration is still open.</span>
+                  </div>
+                </div>
+              </div>
+            )}
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start lg:transform lg:translate-y-[20px] lg:translate-x-[120px] md:transform md:translate-y-[10px] md:translate-x-[60px]">
               <Button asChild size="lg" className="w-full sm:w-48 bg-white/[0.84] backdrop-blur-md text-brand-900 hover:bg-white/90 shadow-lg shadow-brand-900/20 border border-white/35 min-h-[44px] whitespace-nowrap" style={{ WebkitBackdropFilter: 'blur(6px)' }}>
                 <a href={EVENT_DETAILS.registration.link} target="_blank" rel="noopener noreferrer">
