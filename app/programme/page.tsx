@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { PROGRAMME } from "@/data/programme";
+import { PROGRAMME, PROGRAMME_BOOKLET_PDF } from "@/data/programme";
 import { cn } from "@/lib/utils";
-import { Clock } from "lucide-react";
+import { Clock, FileText } from "lucide-react";
 
 export default function ProgrammePage() {
   const [activeDay, setActiveDay] = useState(PROGRAMME[0].day);
@@ -13,10 +13,20 @@ export default function ProgrammePage() {
   return (
     <div className="py-12 lg:py-20 container mx-auto px-4">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-extrabold mb-4" style={{ color: 'var(--text)' }}>Programme</h1>
-        <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--text2)' }}>
+        <h1 className="text-4xl font-extrabold mb-4" style={{ color: 'var(--text)' }}>Programme at a Glance</h1>
+        <p className="text-lg max-w-2xl mx-auto mb-6" style={{ color: 'var(--text2)' }}>
           A comprehensive 3-day curriculum covering didactic lectures and intensive hands-on cadaveric dissection.
         </p>
+        <a
+          href={PROGRAMME_BOOKLET_PDF}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-base font-semibold underline underline-offset-4 transition-colors hover:text-brand-400"
+          style={{ color: 'var(--text)' }}
+        >
+          <FileText className="h-5 w-5 shrink-0" aria-hidden="true" />
+          Please click here to view or download the detailed programme booklet
+        </a>
       </div>
 
       {/* Tabs */}

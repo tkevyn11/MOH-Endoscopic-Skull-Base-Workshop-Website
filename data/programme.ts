@@ -12,6 +12,8 @@ export interface DaySchedule {
   sessions: Session[];
 }
 
+export const PROGRAMME_BOOKLET_PDF = "/MOH-Skull-Base-Programme-Booklet-2026.pdf";
+
 export const PROGRAMME: DaySchedule[] = [
   {
     day: "Day 1",
@@ -39,16 +41,17 @@ export const PROGRAMME: DaySchedule[] = [
       { time: "13:00 – 13:10", title: "Q&A Session", type: "break" },
       { time: "13:10 – 14:30", title: "Lunch, Prayer Break & Exhibition", type: "break" },
       { time: "", title: "SESSION 3: ANTERIOR & MIDDLE CRANIAL FOSSA TRANSCRANIAL", type: "header" },
-      { time: "14:30 – 14:50", title: "Tailored Surgical Access to the Cavernous Sinus", speaker: "Chang Ki Hong", type: "lecture" },
-      { time: "14:50 – 15:10", title: "The Application of Advanced Visualization Tools in Skull Base Surgery", speaker: "Calvin Mak", type: "lecture" },
-      { time: "15:10 – 15:30", title: "Improving Surgical Precision for Pituitary Tumours with Laser Microendoscopy", speaker: "Doo Sik Kong", type: "lecture" },
-      { time: "15:30 – 15:40", title: "Q&A Session", type: "break" },
-      { time: "15:40 – 16:10", title: "Coffee Break & Exhibition", type: "break" },
+      { time: "14:30 – 14:50", title: "Endoscopic Key Hole Anterior Petrosal Approach for Petroclival Tumours", speaker: "Takeo Goto", type: "lecture" },
+      { time: "14:50 – 15:10", title: "Tailored Surgical Access to the Cavernous Sinus", speaker: "Chang Ki Hong", type: "lecture" },
+      { time: "15:10 – 15:30", title: "The Application of Advanced Visualization Tools in Skull Base Surgery", speaker: "Calvin Mak", type: "lecture" },
+      { time: "15:30 – 15:50", title: "Improving Surgical Precision for Pituitary Tumours with Laser Microendoscopy", speaker: "Doo Sik Kong", type: "lecture" },
+      { time: "15:50 – 16:00", title: "Q&A Session", type: "break" },
+      { time: "16:00 – 16:20", title: "Coffee Break & Exhibition", type: "break" },
       { time: "", title: "SESSION 4: POSTERIOR CRANIAL FOSSA TRANSCRANIAL", type: "header" },
-      { time: "16:10 – 16:30", title: "Mini-combined Petrosal Approach for Large Petroclival Tumour", speaker: "Takeo Goto", type: "lecture" },
-      { time: "16:30 – 16:50", title: "Tailored Surgical Management of Foramen Magnum Meningiomas: Selecting the Optimal Route Based on Tumour", speaker: "Chang Ki Hong", type: "lecture" },
-      { time: "16:50 – 17:10", title: "Impact of Preoperative Cranial Tractography on Surgical Approach Choice and Functional Outcome in Patients with Brain Tumours", speaker: "Doo Sik Kong", type: "lecture" },
-      { time: "17:10 – 18:00", title: "Q&A Session, Certification, Closing Remarks", type: "ceremony" },
+      { time: "16:20 – 16:40", title: "Mini-combined Petrosal Approach for Large Petroclival Tumour", speaker: "Takeo Goto", type: "lecture" },
+      { time: "16:40 – 17:00", title: "Tailored Surgical Management of Foramen Magnum Meningiomas: Selecting the Optimal Route Based on Tumour Anatomy", speaker: "Chang Ki Hong", type: "lecture" },
+      { time: "17:00 – 17:20", title: "Impact of Preoperative Cranial Tractography on Surgical Approach Choice and Functional Outcome in Patients with Brain Tumours", speaker: "Doo Sik Kong", type: "lecture" },
+      { time: "17:20 – 18:00", title: "Q&A Session, Certification, Closing Remarks", type: "ceremony" },
     ],
   },
   {
@@ -62,8 +65,8 @@ export const PROGRAMME: DaySchedule[] = [
         title: "Hands-On Cadaveric Dissection (Endoscopic Endonasal)",
         type: "practical",
         description: [
-          "Lecture: Basic and Extended Endoscopic Skull Base Anatomy and Surgical Approaches (Speakers: Takeo Goto, Tadashi Watanabe)",
-          "Dissection: Nasoseptal Harvest, Transsellar, Transplanum, Transcribriform, Transclival, Transmaxillary–Transpterygoid Approaches, and Pituitary Transposition (Speaker: Takeo Goto)"
+          "Lecture (10 min each): Skull Base Anatomy; Basic and Extended Endoscopic Surgical Approaches (Speaker: Tadashi Watanabe)",
+          "Dissection: Nasoseptal Harvest, Transsellar, Transplanum, Transcribriform, Transclival, Transmaxillary–Transpterygoid Approaches, and Pituitary Transposition (Speaker: Tadashi Watanabe)"
         ]
       },
       { time: "13:00 – 14:00", title: "Lunch", type: "break" },
@@ -72,7 +75,7 @@ export const PROGRAMME: DaySchedule[] = [
         title: "Hands-On Cadaveric Dissection (Endoscopic Transorbital)",
         type: "practical",
         description: [
-          "Lecture: Transorbital Neuroendoscopic Anatomy and Surgical Corridors (Speakers: Doo Sik Kong, Chang Ki Hong)",
+          "Lecture (10 min each): Transorbital Neuroendoscopic Anatomy; TONES Surgical Corridors & Techniques (Speakers: Calvin Mak, Doo Sik Kong)",
           "Dissection: Transorbital Portals (Preseptal vs Retroseptal), Superior Eyelid Crease, Lateral Retrocanthal, Medial Transorbital (Transcaruncular) Approach, Key Orbital and Skull Base Landmarks (Speaker: Doo Sik Kong)"
         ]
       },
@@ -84,14 +87,14 @@ export const PROGRAMME: DaySchedule[] = [
     date: "28 June 2026 (Sunday)",
     sessions: [
       { time: "", title: "TRANSCRANIAL (MICROSCOPIC) CADAVERIC DISSECTION", type: "header" },
-      { time: "07:30 – 08:00", title: "Morning Welcome & Equipment Check (Microscope Setup)", type: "ceremony" },
+      { time: "07:30 – 08:00", title: "Morning Welcome & Equipment Check", type: "ceremony" },
       {
         time: "08:00 – 13:00",
         title: "Hands-On Cadaveric Dissection: Anterior & Middle Fossa",
         type: "practical",
         description: [
-          "Lecture: Anterior And Middle Cranial Fossa Surgical Anatomy and Approaches (Speakers: Calvin Mak, Tadashi Watanabe)",
-          "Dissection: Orbitozygomatic, Clinoidectomy, Anterior Petrosectomy, and Cavernous Sinus Exposure (Speaker: Tadashi Watanabe)"
+          "Lecture (10 min each): Microsurgical Anatomy of Anterior Cranial Fossa; Surgical Approaches to Anterior Cranial Fossa (Speaker: Chang Ki Hong)",
+          "Dissection: Cranio-orbitozygomatic, Clinoidectomy, Cavernous Sinus Exposure (Speaker: Chang Ki Hong)"
         ]
       },
       { time: "13:00 – 14:00", title: "Lunch", type: "break" },
@@ -100,8 +103,8 @@ export const PROGRAMME: DaySchedule[] = [
         title: "Hands-On Cadaveric Dissection: Posterior Fossa",
         type: "practical",
         description: [
-          "Lecture: Microsurgical Anatomy of the Posterior Fossa, CPA, and Craniovertebral Junction (Speaker: Takeo Goto)",
-          "Dissection: Retrosigmoid, Posterior Petrosectomy, Far Lateral Approach: Occipital Condyle Drilling and Vertebral Artery Exposure (Speaker: Takeo Goto)"
+          "Lecture: Microsurgical Anatomy of Middle and Posterior Cranial Fossa; Surgical Approaches (Speaker: Takeo Goto)",
+          "Dissection: Combined Petrosectomy (Speaker: Takeo Goto)"
         ]
       },
       { time: "17:00 – 17:30", title: "Final Debriefing, Certification & End of Course", type: "ceremony" },
